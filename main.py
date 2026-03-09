@@ -1,16 +1,14 @@
 import customtkinter as ctk
-
-
-
 class App(ctk.CTk):
-	def __init__(self, width: int, height: int, title: str):
+	def __init__(self, width: int, height: int, title: str, resizable: bool):
 		super().__init__()
+		self.resizable(resizable,resizable)
 		self.geometry(f"{width}x{height}")
 		self.title(f"{title}")
-	def button(self,master: str, text: str, command: None):
-		btn = ctk.CTkButton(master= master, text=text, command = command)
+	def button(self, text: str,command: None):
+		btn = ctk.CTkButton(self, text=text, command = command)
 		return btn
-win.button(win, "Button", None).pack()
-win = App(400,400, "hz")
+	def label(self, text: str):
+		label = ctk.CTkLabel(self, text=text)
+		return label
 
-win.mainloop()
