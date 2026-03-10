@@ -5,33 +5,30 @@ class App(ctk.CTk):
 		self.resizable(resizable,resizable)
 		self.geometry(f"{width}x{height}")
 		self.title(f"{title}")
-	def button(self, text: str="Button",command: str=None, color: str="red", hover: str="darkred", row: int=0, column: int=0, method: str="pack"):
+	def _applyLayout(self, row: int=0, column: int=0, method: str="pack", widget: str=""):
+		if method == "grid":
+			widget.grid(row=row, column=column, padx=10, pady=10)
+		elif method == "pack":
+			widget.pack()	
+	def button(self, text: str="Button",command: str=None, color: str="red", hover: str="darkred", method: str="pack", row: int=0, column: int=0):
 		btn = ctk.CTkButton(self, text=text, command = command, fg_color=color, hover_color=hover)
-		if method == "pack":
-			btn.pack()
-		elif method == "grid":
-			btn.grid(row=row, column=column, padx=10, pady=10)
+		self._applyLayout(widget=btn, method=method, column=column, row=row)
 		return btn
-	def label(self, text: str = "Label"):
+	def label(self, text: str = "Label", method: str="pack", column: int=0, row: int=0):
 		label = ctk.CTkLabel(self, text=text )
-		label.pack()
+		self._applyLayout(widget=label, method=method, column=column, row=row)
 		return label
-	def entry(self, placeholder_text: str="Entry"):
+	def entry(self, placeholder_text: str="Entry", method: str="pack", column: int=0, row: int=0):
 		entry = ctk.CTkEntry(self,placeholder_text=placeholder_text)
-		entry.pack()
+		self._applyLayout(widget=entry, method=method, column=column, row=row)
 		return entry
-	def checkbox(self, text: str="Checkbox"):
-		checkbox = ctk.CTkCheckBox(self, text=text)
-		checkbox.pack()
+	def checkbox(self, text: str="Checkbox", method: str="pack", column: int=0, row: int=0):
+		checkbox = ctk.CTkCheckBox(self, text=text, )
+		self._applyLayout(widget=checkbox, method=method, column=column, row=row)
 		return checkbox
+	def switch(self, text: str="Switch", method: str="pack", column: int=0, row: int=0):
+		switch = ctk.CTkSwitch(self, text=text)
+		self._applyLayout(widget=switch, method=method, column=column, row=row)
+		return switch
 	def run(self):
 		self.mainloop()
-
-a = App()
-
-a.label("Label")
-a.button("Button")
-a.checkbox()
-a.entry()
-
-a.run()
