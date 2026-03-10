@@ -1,34 +1,27 @@
 # easyCTk
-/EasyCTk - is a small framework based on ``CustomTkinter``, to make creation of a simple python GUI app a lot more easier. The main goal of this framework, to make developers focus on developing project's logic more, and concentrate on UI less.
 
-##Key Features
- - **Easy Initializing** - easily initialize basic UI widgets, like buttons, labels and switches
- - **Easy syntax** - very simple and easy to learn and use our product, create window, labels, entries, in a really short amount of lines
+**easyCTk** is a lightweight framework based on `CustomTkinter`, designed to make the creation of simple Python GUI apps significantly easier. The main goal of this framework is to let developers focus more on project logic and less on UI configuration.
+
+## Key Features
+- **Rapid Initialization** - easily initialize basic UI widgets like buttons, labels, and switches.
+- **Clean Syntax** - very simple and easy to learn. Create windows, labels, and entries in just a few lines of code.
+
+![App Preview](img.png)
 
 ## Quick Start
 
-ʼʼʼpython
-from easyCTk import *
+```python
+from easyCTk import App
 
-#Initialize window
+# Initialize window
 window = App()
 
-#start creating widgets, for example, label
+# Create widgets
 window.label(text="Simple Label")
-
-#entry
 window.entry(placeholder_text="Entry")
-
-#button
 window.button(text="Button")
-
-#checkbox
 window.checkbox(text="Checkbox")
-
-#switch
 window.switch(text="Switch")
 
-#Start the window!
+# Start the window!
 window.run()
-ʼʼʼ
-![App preview](img.png)
